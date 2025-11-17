@@ -1,0 +1,15 @@
+运行步骤：
+
+文件位置：/usr/local/src/lex_compiler
+
+# 1. 使用 flex 生成 C 源代码
+flex lexer.l
+
+# 2. 使用 gcc 编译生成可执行文件（CentOS 确实不需要 -lfl 参数）
+gcc -o lexer lex.yy.c
+
+# 3. 给执行权限（其实 gcc 已经生成了可执行文件，这步可选）
+chmod +x lexer
+
+# 4. 运行词法分析器
+./lexer test_source.txt
